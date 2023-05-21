@@ -1,0 +1,138 @@
+
+<!-- #HTML -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>eBay - Sell Your Stuff</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background-color: #0064d2;
+      }
+      #logo {
+        width: 150px;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #f2f2f2;
+      }
+      .category {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
+      }
+      .category img {
+        width: 100%;
+        height: auto;
+      }
+      .category a {
+        margin-top: 10px;
+        text-align: center;
+        color: #333333;
+        font-size: 16px;
+      }
+      form {
+        width: 500px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      }
+      label {
+        display: block;
+        margin-bottom: 10px;
+        color: #333333;
+      }
+      input[type="text"], textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+      input[type="submit"] {
+        background-color: #f5a623;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+      }
+      input[type="submit"]:hover {
+        background-color: #ffbf47;
+      }
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        #logo {
+          margin-bottom: 10px;
+        }
+        nav {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .category {
+          margin: 10px 0;
+        }
+        form {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img id="logo" src="https://www.ebay.com/logo.png" alt="eBay Logo">
+      <form>
+        <input id="search-bar" type="search" placeholder="Search for items...">
+        <button id="search-btn" type="submit">Search</button>
+      </form>
+    </header>
+    <nav>
+      <div class="category">
+        <img src="https://www.ebay.com/category1.png" alt="Category 1">
+        <a href="#">Category 1</a>
+      </div>
+      <div class="category">
+        <img src="https://www.ebay.com/category2.png" alt="Category 2">
+        <a href="#">Category 2</a>
+      </div>
+      <div class="category">
+        <img src="https://www.ebay.com/category3.png" alt="Category 3">
+        <a href="#">Category 3</a>
+      </div>
+      <div class="category">
+        <img src="https://www.ebay.com/category4.png" alt="Category 4">
+        <a href="#">Category 4</a>
+      </div>
+    </nav>
+    <h1>Sell Your Stuff</h1>
+    <form action="/sell" method="post">
+      <label for="item-name">Item Name:</label>
+      <input type="text" id="item-name" name="item-name" required>
+      <label for="item-description">Item Description:</label>
+      <textarea id="item-description" name="item-description" required></textarea>
+      <label for="item-price">Item Price:</label>
+      <input type="text" id="item-price" name="item-price" required>
+      <input type="submit" value="Sell Item">
+    </form>
+  </body>
+</html>
