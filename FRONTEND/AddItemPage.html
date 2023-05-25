@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>eBay - Sell Your Stuff</title>
+    <title>Sell Now! - International Digital Shop</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -14,8 +14,12 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        text-align: center;
         padding: 20px;
         background-color: #0064d2;
+      }
+      h1 {
+        text-align: center;
       }
       #logo {
         width: 150px;
@@ -25,17 +29,13 @@
         justify-content: space-between;
         align-items: center;
         padding: 10px;
-        background-color: #f2f2f2;
+        background-color: #ffffff;
       }
       .category {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin: 10px;
-      }
-      .category img {
-        width: 100%;
-        height: auto;
       }
       .category a {
         margin-top: 10px;
@@ -92,7 +92,7 @@
         .category {
           margin: 10px 0;
         }
-        form {
+        form {  
           width: 100%;
         }
       }
@@ -100,30 +100,12 @@
   </head>
   <body>
     <header>
-      <img id="logo" src="https://drive.google.com/file/d/1a9Eo_H6xojWRoPGRV8S1-9pSPwbZGxyi/view?usp=drive_link" alt="ShopNSellNow Logo">
-      <form>
-        <input id="search-bar" type="search" placeholder="Search for items...">
-        <button id="search-btn" type="submit">Search</button>
-      </form>
+      <a href="MainPage.html">
+       <img src="https://i.postimg.cc/3x764Y4r/ShopLogo.png" alt="ShopNSellNow Logo" width="160" height="90">
+      </a>
     </header>
-    <nav>
-      <div class="category">
-        <img src="https://www.ebay.com/category1.png" alt="Category 1">
-        <a href="#">Category 1</a>
-      </div>
-      <div class="category">
-        <img src="https://www.ebay.com/category2.png" alt="Category 2">
-        <a href="#">Category 2</a>
-      </div>
-      <div class="category">
-        <img src="https://www.ebay.com/category3.png" alt="Category 3">
-        <a href="#">Category 3</a>
-      </div>
-      <div class="category">
-        <img src="https://www.ebay.com/category4.png" alt="Category 4">
-        <a href="#">Category 4</a>
-      </div>
-    </nav>
+
+    <h1 {text-align: center;}>
     <h1>Sell Your Stuff</h1>
     <form action="/sell" method="post">
       <label for="item-name">Item Name:</label>

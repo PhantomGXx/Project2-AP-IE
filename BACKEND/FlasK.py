@@ -1,33 +1,51 @@
 #FlasK
 
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///SQL.sql'
+db = SQLAlchemy(app)
 
-items_for_sale = []
+class Item(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    description = db.Column(db.Text)
+    price = db.Column(db.Float, nullable=False)
+    category = db.Column(db.String(50), nullable=False)
 
 @app.route('/')
 def index():
-    return render_template('HTML.html')
+    return render_template('MainPage.html')
 
-@app.route('/sell', methods=['POST'])
+@app.route('/add-item', methods=['POST'])
 def sell():
     item_name = request.form['item-name']
     item_description = request.form['item-description']
-    item_price = request.form['item-price']
+    item_price = float(request.form['item-price'])
+    item_category = request.form['item-category']
+
+    item = Item(name=item_name, description=item_description, price=item_price, category=item_category)
     
-    item = {
-        'name': item_name,
-        'description': item_description,
-        'price': item_price
-    }
-    
-    items_for_sale.append(item)
-    
+    db.session.add(item)
+    db.session.commit()
+
     return 'Item added to sell list!'
 
+@app.route('/')
+def index():
+    # create a list of items to display
+    items = [
+        {'name': 'Item 1', 'description': 'This is item 1', 'price': '$19.99','category':'electronics'},
+        {'name': 'Item 2', 'description': 'This is item 2', 'price': '$29.99','category':'electronics'},
+        {'name': 'Item 3', 'description': 'This is item 3', 'price': '$39.99','category':'electronics'}
+    ]
+    
+    # render the item_section.html template for each item in the list
+    return render_template('Index.html', items=items)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+   app.run(debug=True)
 
 """
 import requests
@@ -44,4 +62,3 @@ response = requests.request("GET", url, headers=headers, data = payload)
 status_code = response.status_code
 result = response.text
 """
-
