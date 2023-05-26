@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Sell Now! - International Digital Shop</title>
+    <title>Sell Now! - International Digital Shop's Selling Page</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -24,38 +24,20 @@
       #logo {
         width: 150px;
       }
-      nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px;
-        background-color: #ffffff;
-      }
-      .category {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 10px;
-      }
-      .category a {
-        margin-top: 10px;
-        text-align: center;
-        color: #333333;
-        font-size: 16px;
-      }
       form {
         width: 500px;
         margin: 0 auto;
-        background-color: #ffffff;
+        background-color: #bec2f3;
         padding: 20px;
         border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        box-shadow: 0 10px 10px rgba(0,0,0,0.2);
       }
-      label {
-        display: block;
-        margin-bottom: 10px;
-        color: #333333;
+      #Reminder{
+        font-size: x-small;
+        display: inline-block;
+        margin-left: 10px;
       }
+
       input[type="text"], textarea {
         width: 100%;
         padding: 10px;
@@ -66,8 +48,8 @@
         font-size: 16px;
       }
       input[type="submit"] {
-        background-color: #f5a623;
-        color: #ffffff;
+        background-color: #ac2ca7;
+        color: #cecccc;
         padding: 10px 20px;
         border-radius: 5px;
         border: none;
@@ -75,8 +57,9 @@
         font-size: 16px;
       }
       input[type="submit"]:hover {
-        background-color: #ffbf47;
+        background-color: #90248c;
       }
+      /* This is for when the screen size changes, like mobile. */
       @media (max-width: 768px) {
         header {
           flex-direction: column;
@@ -98,22 +81,32 @@
       }
     </style>
   </head>
+
   <body>
     <header>
       <a href="MainPage.html">
-       <img src="https://i.postimg.cc/3x764Y4r/ShopLogo.png" alt="ShopNSellNow Logo" width="160" height="90">
+       <img src="https://i.postimg.cc/3x764Y4r/ShopLogo.png" alt="ShopNSellNow Logo" width="180" height="90">
       </a>
     </header>
 
     <h1 {text-align: center;}>
     <h1>Sell Your Stuff</h1>
     <form action="/sell" method="post">
-      <label for="item-name">Item Name:</label>
-      <input type="text" id="item-name" name="item-name" required>
-      <label for="item-description">Item Description:</label>
-      <textarea id="item-description" name="item-description" required></textarea>
-      <label for="item-price">Item Price:</label>
-      <input type="text" id="item-price" name="item-price" required>
+      <label for="item-name">Item Name: <p id="Reminder">(No more then 50 characters)</p></label>
+      <input type="text" id="item-name" name="item-name" required maxlength="50">
+      <label for="item-description">Item Description:<p id="Reminder">(No more then 600 characters)</p></label>
+      <textarea id="item-description" name="item-description" required maxlength="600"></textarea>
+      <label for="item-price">Item Price (IRR):<p id="Reminder">(No more then 12 digits)</p></label>
+      <input type="text" id="item-price" name="item-price" required maxlength="12">
+      <label for="item-category">Item Category:</label>
+      <select id="item-category" name="item-category" required>
+        <option value="">Select a category</option>
+        <option value="clothing">Clothing</option>
+        <option value="electronics">Electronics</option>
+        <option value="kitchenware">Kitchenware</option>
+        <option value="miscellaneous">Miscellaneous</option>
+      </select>
+      <hr>
       <input type="submit" value="Sell Item">
     </form>
   </body>

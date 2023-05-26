@@ -44,6 +44,33 @@ def index():
     # render the item_section.html template for each item in the list
     return render_template('Index.html', items=items)
 
+@app.route('/sell', methods=['POST'])
+def sell_item():
+    # process the form data and put the item up for sale
+    # ...
+    # redirect the user to MainPage.html with a success message
+    return redirect(url_for('main_page', success=True))
+
+@app.route('/MainPage.html')
+def main_page():
+    success = request.args.get('success')
+    if success:
+        return '''
+            <html>
+            <body>
+                <h1>Your item was put up for sale successfully!</h1>
+            </body>
+            </html>
+        '''
+    else:
+        return '''
+            <html>
+            <body>
+                <h1>Item was unable to be put up for sale. Sorry!</h1>
+            </body>
+            </html>
+        '''
+
 if __name__ == '__main__':
    app.run(debug=True)
 
