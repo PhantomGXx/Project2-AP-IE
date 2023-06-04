@@ -74,18 +74,17 @@ def main_page():
 if __name__ == '__main__':
    app.run(debug=True)
 
-"""
+
 import requests
 
 url = "https://api.apilayer.com/fixer/convert?to=IRR&from=USD&amount=1"
 
 payload = {}
 headers= {
-  "apikey": "y1nAFLy9Mt7kO9xglrjDuHKIz4GG7BbW"
+  "apikey": "y1nAFLy9Mt7kO9xgljDuHKIz4GG7BbW"
 }
 
 response = requests.request("GET", url, headers=headers, data = payload)
 
 status_code = response.status_code
 result = response.text
-"""
